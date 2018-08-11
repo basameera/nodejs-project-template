@@ -1,0 +1,41 @@
+
+{ message: 'user',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T08:42:07.955Z' }
+{ message: 'branch',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T08:42:07.968Z' }
+{ message: 'products',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T08:42:07.977Z' }
+{ message: 'user',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T08:42:21.398Z' }
+{ message: 'user',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:34.157Z' }
+{ message: 'branch',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:34.175Z' }
+{ message: 'products',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:34.183Z' }
+{ message: 'user',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:51.433Z' }
+{ message: 'branch',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:51.440Z' }
+{ message: 'products',
+  level: 'info',
+  label: 'right meow!',
+  timestamp: '2018-08-11T14:02:51.449Z' }

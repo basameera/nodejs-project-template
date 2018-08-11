@@ -1,0 +1,17 @@
+heroku login
+git init
+git add .
+git commit -m "Initing"
+git push https://git.heroku.com/asiri.git master
+
+# to check git status: git status
+
+npm init -f = for initial package.json
+npm install <--save> = "--save" part will add dependencies to the package.json file
+
+add .env to .gitignore file so it won't be uploaded to git
+
+for debuging run server/app like this =>    DEBUG=* node server.js
+                                            DEBUG=* nodemon server.js
+
+Let me emphasize this: Setting NODE_ENV to production makes your application 3 times faster!

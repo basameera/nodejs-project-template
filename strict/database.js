@@ -3,13 +3,13 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 var mysql = require('mysql');
-var dbname = process.env.DB_NAME//'asiri';
+var dbname = process.env.DB_NAME
 
 var connection = mysql.createPool({
     connectionLimit: 100,
-    host: process.env.DB_HOST,//'127.0.0.1',
-    user: process.env.DB_USER,//'root',
-    password: process.env.DB_PASSWORD,//'earlteknkas',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     database: dbname,
     port: 3306,
     debug: false,

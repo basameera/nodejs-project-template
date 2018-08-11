@@ -28,7 +28,7 @@ console.log('sjc@gmail.com' + '-' + genRandom())
 
 const logger = createLogger({
     format: combine(
-        label({ label: 'right meow!' }),
+        label({ label: 'CBWPv2' }),
         timestamp(),
         prettyPrint()
     ),

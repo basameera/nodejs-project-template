@@ -3,7 +3,7 @@ var database = require('./strict/database');
 var pool = database.mysql_pool;
 var dbname = database.dbname;
 var aes = require('aes-cross');
-var key = new Buffer('godfatherpartiii', 'binary');
+var key = new Buffer(process.env.AES_KEY, 'binary');
 
 module.exports = function (app) {
 

@@ -13,7 +13,6 @@ var key = new Buffer('godfatherpartiii', 'binary');
 var numeral = require('numeral');
 var favicon = require('serve-favicon')
 var path = require('path')
-
 var cors = require('cors');
 var morgan = require('morgan')
 const { createLogger, format, transports } = require('winston');
@@ -28,7 +27,7 @@ console.log('sjc@gmail.com' + '-' + genRandom())
 
 const logger = createLogger({
     format: combine(
-        label({ label: 'CBWPv2' }),
+        label({ label: 'right meow!' }),
         timestamp(),
         prettyPrint()
     ),
@@ -115,6 +114,8 @@ app.use(session({
     rolling: true,
     cookie: { maxAge: 15 * 60 * 1000 }
 }));
+
+require('./login')(app);
 
 var auth = function (req, res, next) {
     if (req.session && req.session.user && req.session.admin)//=== "admin"
@@ -208,59 +209,6 @@ app.get('/', function (req, res) {
     else {
         res.redirect('/login');
     }
-});
-
-app.get('/login', function (req, res) {
-    res.sendFile(__dirname + '/public/login.html');
-});
-
-app.post('/login', function (req, res) {
-    var form = new formidable.IncomingForm();
-    form.parse(req, function (err, fields, files) {
-        if (!err) {
-            // console.log(fields);
-
-            if (fields.username != '' && fields.password != '') {
-                // if (fields.username == 'sam' && fields.password == 'san') {
-
-                pool.getConnection(function (err, connection) {
-                    if (err) {
-                        errData = {
-                            error: 1,
-                            data: 'Internal Server Error'
-                        }
-                        res.status(SERVER_ERR).json(errData);
-                    }
-                    connection.query("SELECT id FROM `" + dbname + "`.portal_user WHERE db_username=? AND db_password=?;",
-                        [fields.username, aes.encText(fields.password, key)],
-                        function (err, result) {
-                            connection.release();
-                            if (!err) {
-                                if (result.length > 0) {
-                                    req.session.user = "admin";
-                                    req.session.admin = true;
-                                    req.session.username = fields.username;
-                                    res.redirect('/index');
-                                }
-                                else res.redirect('/');
-
-                            } else {
-                                res.redirect('/');
-                            }
-                        });
-                });
-
-                // } else res.redirect('/');
-            } else res.redirect('/');
-        } else {
-            res.redirect('/');
-        }
-    });
-});
-
-app.get('/logout', function (req, res) {
-    req.session.destroy();
-    res.redirect('/');
 });
 
 /////////////////  Pages  ////////////////////////
@@ -1584,6 +1532,7 @@ let transporter = nodeMailer.createTransport({
 });
 ///NOTE: use email-template package to inject data to the webpage
 var htmlstream = fs.createReadStream(__dirname + '/Email/email.html');
+// var htmlstream = fs.readFileSync(__dirname+'/Email/email.html');
 let mailOptions = {
     headers: {
         'priority': 'high'
